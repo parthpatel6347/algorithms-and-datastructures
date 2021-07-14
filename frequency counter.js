@@ -1,7 +1,7 @@
 //frequency counter pattern - 0(n)
 
 //write a function called same, which accepts two arrays. The function should return true if every
-//value in the functino array has its corresponding value squared in the second array.
+//value in the function array has its corresponding value squared in the second array.
 //the frequency of values must be the same
 
 function same(arr1, arr2) {
