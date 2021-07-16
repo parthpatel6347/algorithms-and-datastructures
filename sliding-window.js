@@ -61,3 +61,33 @@ console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 39));
 console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 55));
 console.log(minSubArrayLen([4, 3, 3, 8, 1, 2, 3], 11));
 console.log(minSubArrayLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 95));
+
+//dynamic with strings
+
+//write a function which accepts a string and returns the length of the longest
+//substring with all distinct characters
+
+function findLongestSubstring(str) {
+  let start = 0;
+  let longest = 0;
+  let set = {};
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (set[char]) {
+      start = Math.max(start, set[char]);
+    }
+
+    longest = Math.max(longest, i - start + 1);
+    set[char] = i + 1;
+  }
+  return longest;
+}
+
+console.log(findLongestSubstring(""));
+console.log(findLongestSubstring("rithmschool"));
+console.log(findLongestSubstring("thisisawesome"));
+console.log(findLongestSubstring("thecatinthehat"));
+console.log(findLongestSubstring("bbbbbb"));
+console.log(findLongestSubstring("longestsubstring"));
+console.log(findLongestSubstring("thisishowwedoit"));
