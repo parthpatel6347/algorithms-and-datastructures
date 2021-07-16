@@ -62,3 +62,28 @@ console.log(averagePair([1, 2, 3], 2.5));
 console.log(averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8));
 console.log(averagePair([-1, 0, 3, 4, 5, 6], 4.1));
 console.log(averagePair([], 4));
+
+//Write a function called isSubsequence which takes in two strings and checks whether the characters in
+//the first string form a subsequence of the characters in the second string. In other words, the function
+// should check whether the characters in the first string appear somewhere in the second string
+//without their order changing.
+
+function isSubsequence(str1, str2) {
+  if (str2.length < str1.length) return false;
+
+  let x = 0;
+  let y = 0;
+  while (y < str2.length) {
+    if (str1[x] === str2[y]) {
+      x++;
+      if (x === str1.length) return true;
+      y++;
+    }
+  }
+  return false;
+}
+
+console.log(isSubsequence("hello", "hello world"));
+console.log(isSubsequence("sing", "sting"));
+console.log(isSubsequence("abc", "abracadabra"));
+console.log(isSubsequence("abc", "acb"));
