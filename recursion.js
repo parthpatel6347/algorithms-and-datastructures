@@ -71,6 +71,39 @@ console.log(fib(10));
 console.log(fib(28));
 console.log(fib(35));
 
-function reverse(str) {}
+function reverse(str) {
+  if (str.length <= 1) return str;
+  return reverse(str.slice(1)) + str[0];
+}
 
 console.log(reverse("parth"));
+
+function isPalindrome(str) {
+  //base case if word has odd no of letters
+  if (str.length === 1) return true;
+
+  //base case if word has even no of letters
+  if (str.length === 2) return str[0] === str[1];
+
+  //recurse if letters at two ends are the same, else false
+  if (str[0] == str.slice(-1)) return isPalindrome(str.slice(1, -1));
+  return false;
+}
+
+console.log(isPalindrome("awesome"));
+console.log(isPalindrome("foobar"));
+console.log(isPalindrome("tacocat"));
+console.log(isPalindrome("amanaplanacanalpanama"));
+
+//
+
+function flatten(arr) {
+  if (arr.length === 0) return [];
+  if (!Array.isArray(arr[0])) return [arr[0]].concat(flatten(arr.slice(1)));
+  else return flatten(arr[0]).concat(flatten(arr.slice(1)));
+}
+
+console.log(flatten([1, 2, 3, [4, 5]]));
+console.log(flatten([1, [2, [3, 4], [[5]]]]));
+console.log(flatten([[1], [2], [3]]));
+console.log(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]));
