@@ -20,7 +20,19 @@ console.log(romanToInt("MCMXCIV"));
 
 //longest common prefix
 
-function longestCommonPrefix(arr) {}
+function longestCommonPrefix(arr) {
+  if (arr.length === 0 || arr.length === null) return "";
+  for (let i = 0; i < arr[0].length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (i === arr[j].length || arr[j][i] !== arr[0][i]) {
+        return arr[0].slice(0, i);
+      }
+    }
+  }
+  return arr[0];
+}
 
 console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+console.log(longestCommonPrefix(["flower", "flower", "flower"]));
 console.log(longestCommonPrefix(["dog", "racecar", "car"]));
+console.log(longestCommonPrefix(["a", "b"]));

@@ -74,11 +74,9 @@ function isSubsequence(str1, str2) {
   let x = 0;
   let y = 0;
   while (y < str2.length) {
-    if (str1[x] === str2[y]) {
-      x++;
-      if (x === str1.length) return true;
-      y++;
-    }
+    if (str1[x] === str2[y]) x++;
+    if (x === str1.length) return true;
+    y++;
   }
   return false;
 }
