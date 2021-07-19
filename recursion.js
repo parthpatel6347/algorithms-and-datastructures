@@ -98,12 +98,30 @@ console.log(isPalindrome("amanaplanacanalpanama"));
 //
 
 function flatten(arr) {
-  if (arr.length === 0) return [];
-  if (!Array.isArray(arr[0])) return [arr[0]].concat(flatten(arr.slice(1)));
-  else return flatten(arr[0]).concat(flatten(arr.slice(1)));
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      newArr = newArr.concat(flatten(arr[i]));
+    } else {
+      newArr.push(arr[i]);
+    }
+  }
+
+  return newArr;
 }
 
 console.log(flatten([1, 2, 3, [4, 5]]));
 console.log(flatten([1, [2, [3, 4], [[5]]]]));
 console.log(flatten([[1], [2], [3]]));
 console.log(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]));
+
+//capitalize first
+
+function capitalizeFirst(arr) {
+  if (arr.length === 0) return [];
+  return [arr[0][0].toUpperCase() + arr[0].slice(1)].concat(
+    capitalizeFirst(arr.slice(1))
+  );
+}
+
+console.log(capitalizeFirst(["car", "taco", "banana"]));
