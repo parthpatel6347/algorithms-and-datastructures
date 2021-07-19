@@ -17,3 +17,10 @@ function romanToInt(s) {
 }
 
 console.log(romanToInt("MCMXCIV"));
+
+//longest common prefix
+
+function longestCommonPrefix(arr) {}
+
+console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+console.log(longestCommonPrefix(["dog", "racecar", "car"]));
