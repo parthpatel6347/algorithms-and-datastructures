@@ -1,11 +1,11 @@
-function bubbleSort(arr) {
-  //swap function
-  function swap(array, idx1, idx2) {
-    let temp = array[idx1];
-    array[idx1] = array[idx2];
-    array[idx2] = temp;
-  }
+//swap function
+function swap(array, idx1, idx2) {
+  let temp = array[idx1];
+  array[idx1] = array[idx2];
+  array[idx2] = temp;
+}
 
+function bubbleSort(arr) {
   let noSwaps;
   for (let i = arr.length; i > 0; i--) {
     noSwaps = true;
