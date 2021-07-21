@@ -172,3 +172,67 @@ function capitalizeWords(arr) {
 let words = ["i", "am", "learning", "recursion"];
 console.log(capitalizeWords(words));
 console.log(capitalizeWords(["parth"]));
+
+function stringifyNumbers(obj) {
+  let newObj = {};
+  for (let key in obj) {
+    if (typeof obj[key] === "object" && !Array.isArray(obj[key])) {
+      newObj[key] = stringifyNumbers(obj[key]);
+    } else if (typeof obj[key] === "number") {
+      newObj[key] = obj[key].toString();
+    } else {
+      newObj[key] = obj[key];
+    }
+  }
+  return newObj;
+}
+
+let obj = {
+  num: 1,
+  test: [],
+  data: {
+    val: 4,
+    info: {
+      isRight: true,
+      random: 66,
+    },
+  },
+};
+
+console.log(stringifyNumbers(obj));
+
+function collectStrings(obj) {
+  let string = [];
+
+  function helper(o) {
+    for (let key in o) {
+      if (typeof o[key] === "string") {
+        string.push(o[key]);
+      } else if (typeof o[key] === "object") {
+        return helper(o[key]);
+      }
+    }
+  }
+
+  helper(obj);
+
+  return string;
+}
+
+const obj3 = {
+  stuff: "foo",
+  data: {
+    val: {
+      thing: {
+        info: "bar",
+        moreInfo: {
+          evenMoreInfo: {
+            weMadeIt: "baz",
+          },
+        },
+      },
+    },
+  },
+};
+
+console.log(collectStrings(obj3));

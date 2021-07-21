@@ -36,3 +36,15 @@ console.log(longestCommonPrefix(["flower", "flow", "flight"]));
 console.log(longestCommonPrefix(["flower", "flower", "flower"]));
 console.log(longestCommonPrefix(["dog", "racecar", "car"]));
 console.log(longestCommonPrefix(["a", "b"]));
+
+//leetcode 20. Valid Parenthesis
+
+function isValidParenthesis(str) {
+  let parens = {};
+}
+
+console.log(isValidParenthesis("()"));
+console.log(isValidParenthesis("()[]{}"));
+console.log(isValidParenthesis("(]"));
+console.log(isValidParenthesis("([)]"));
+console.log(isValidParenthesis("{[]}"));
