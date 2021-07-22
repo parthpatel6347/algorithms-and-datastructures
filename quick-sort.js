@@ -9,13 +9,25 @@ function pivotHelper(arr, startIdx = 0, endIdx = arr.length - 1) {
 
   for (i = startIdx + 1; i <= endIdx; i++) {
     if (arr[startIdx] > arr[i]) {
-      swap(arr, pivot + 1, i);
       pivot++;
+      swap(arr, pivot, i);
     }
   }
   swap(arr, pivot, startIdx);
-  console.log(arr);
   return pivot;
 }
 
 console.log(pivotHelper([5, 2, 7, 9, 3, 10]));
+console.log(pivotHelper([4, 8, 2, 1, 5, 7, 6, 3]));
+console.log(pivotHelper([5, 7, 6, 8]));
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivot = pivotHelper(arr, left, right);
+    quickSort(arr, left, pivot - 1);
+    quickSort(arr, pivot + 1, right);
+  }
+  return arr;
+}
+
+console.log(quickSort([4, 8, 2, 1, 5, 7, 6, 3]));
