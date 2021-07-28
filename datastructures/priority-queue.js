@@ -1,4 +1,4 @@
-//Min Binary Heap
+//Min Binary Heap w/ node
 
 class Node {
   constructor(val, priority) {
